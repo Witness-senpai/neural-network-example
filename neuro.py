@@ -5,9 +5,9 @@ import neuralNetwork as n
 
 #Параметры нейросети
 inputNodes = 784
-hiddenNodes = (50, 20)
+hiddenNodes = (20, 20)
 outNodes = 10
-learningRate = 0.5
+learningRate = 0.3
 
 network = n.NeuralNet(
     inputNodes,
@@ -19,8 +19,8 @@ network = n.NeuralNet(
 epoch = 0
 t = time.time()
 print("===обучение===")
-for epoch in range(5): 
-    trainFile = open('mnist_train.csv', 'r')
+for epoch in range(10): 
+    trainFile = open('data/mnist_train.csv', 'r')
     for line in trainFile : 
         indx = int(line[0])
         l = line[2:].split(',')
@@ -38,7 +38,7 @@ print("Время обучения: " + str(time.time() - t) + "\n")
 
 t = 0
 f = 0
-testFile = open('mnist_test.csv', 'r')
+testFile = open('data/mnist_test.csv', 'r')
 for line in testFile :
     indx = int(line[0])
     l = line[2:].split(',')
